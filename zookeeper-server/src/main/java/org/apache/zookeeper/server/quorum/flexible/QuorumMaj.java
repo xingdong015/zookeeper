@@ -18,16 +18,18 @@
 
 package org.apache.zookeeper.server.quorum.flexible;
 
+import org.apache.zookeeper.server.quorum.QuorumPeer.LearnerType;
+import org.apache.zookeeper.server.quorum.QuorumPeer.QuorumServer;
+import org.apache.zookeeper.server.quorum.QuorumPeerConfig.ConfigException;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
-import org.apache.zookeeper.server.quorum.QuorumPeer.LearnerType;
-import org.apache.zookeeper.server.quorum.QuorumPeer.QuorumServer;
-import org.apache.zookeeper.server.quorum.QuorumPeerConfig.ConfigException;
 
 /**
+ * 投票结果校验器、简单粗暴的实现、大多数同意就是过半的法定投票
  * This class implements a validator for majority quorums. The implementation is
  * straightforward.
  *

@@ -120,7 +120,7 @@ public class QuorumPeerMain {
             config.parse(args[0]);
         }
 
-        // Start and schedule the the purge task
+        // Start and schedule the the purge task  清理任务
         DatadirCleanupManager purgeMgr = new DatadirCleanupManager(
                 config.getDataDir(),
                 config.getDataLogDir(),
@@ -167,7 +167,7 @@ public class QuorumPeerMain {
                 secureCnxnFactory = ServerCnxnFactory.createFactory();
                 secureCnxnFactory.configure(config.getSecureClientPortAddress(), config.getMaxClientCnxns(), config.getClientPortListenBacklog(), true);
             }
-
+            //quorumPeer代表当前的投票实例 某一个投票者
             quorumPeer = getQuorumPeer();
             quorumPeer.setTxnFactory(new FileTxnSnapLog(config.getDataLogDir(), config.getDataDir()));
             quorumPeer.enableLocalSessions(config.areLocalSessionsEnabled());
